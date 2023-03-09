@@ -1,0 +1,19 @@
+{
+  "name": "@sample-project/sample-module",
+  "version": "1.2.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && rollup --config"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "rimraf": "^4.4.0",
+    "rollup": "^3.18.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.9.5"
+  }
+}
