@@ -1,0 +1,31 @@
+trigger:
+  tags:
+    include:
+      - sample-module-v*
+
+pool:
+  vmImage: ubuntu-22.04
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: 18.x
+  displayName: Install Node.js
+
+- task: Npm@1
+  inputs:
+    command: ci
+  displayName: Install sample-module's dependencies
+
+- task: Npm@1
+  inputs:
+   command: custom
+   customCommand: run build
+  displayName: Build sample-module
+
+- task: Npm@1
+  inputs:
+    command: publish
+    publishRegistry: useFeed
+    publishFeed: sample-project/sample-feed
+  displayName: Publish sample-module
